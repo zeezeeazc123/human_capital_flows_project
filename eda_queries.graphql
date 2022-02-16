@@ -1,0 +1,98 @@
+# # Query by topic
+query {
+  topic(name:"ai") {
+    stargazerCount
+    repositories(first:100, orderBy:{direction:DESC, field:STARGAZERS}){
+      nodes {
+        nameWithOwner
+        description
+        createdAt
+        updatedAt
+        homepageUrl
+        stargazerCount
+				forkCount
+        languages(first:10) {
+          totalCount # total count of items in the connection.
+          totalSize # total size in bytes of files written in that language.
+          edges{
+            size # # bytes of code written in the language
+            node {
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+# # Query by Username
+query {
+    user(login: "3b1b") {
+      login
+      name
+      bio
+      twitterUsername
+      company
+      repositories(first: 10, orderBy: {direction: DESC, field: STARGAZERS}) {
+        nodes {
+          nameWithOwner
+          description
+          createdAt
+          updatedAt
+          homepageUrl
+          stargazerCount
+                  forkCount
+          languages(first:10) {
+            totalCount # total count of items in the connection.
+            totalSize # total size in bytes of files written in that language.
+            edges{
+              size # # bytes of code written in the language
+              node {
+                name
+              }
+            }
+          }
+        }
+      }
+      repositoriesContributedTo(first: 10, includeUserRepositories: true, orderBy: {direction: DESC, field: UPDATED_AT}) {
+        nodes {
+          nameWithOwner
+          description
+          createdAt
+          updatedAt
+          homepageUrl
+          stargazerCount
+                  forkCount
+          languages(first:10) {
+            totalCount # total count of items in the connection.
+            totalSize # total size in bytes of files written in that language.
+            edges{
+              size # # bytes of code written in the language
+              node {
+                name
+              }
+            }
+          }
+        }
+      }
+      watching(first:10) {
+        nodes {
+          nameWithOwner
+          description
+          createdAt
+          forkCount
+          languages(first:10) {
+            totalCount # total count of items in the connection.
+            totalSize # total size in bytes of files written in that language.
+            edges{
+              size # # bytes of code written in the language
+              node {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
