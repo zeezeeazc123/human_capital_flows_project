@@ -7,7 +7,7 @@ def conn_psql(db_user:str, host:str='localhost')->str:
     
     Args:
     - db_user (str):    The username for the database connection.       
-    - host (str):       Host location
+    - host (str):       (Optional) Host location
     
     Returns:
     - SQLAlchemy Connectable
@@ -18,7 +18,7 @@ def conn_psql(db_user:str, host:str='localhost')->str:
     return create_engine(f'postgresql+psycopg2://{db_user}:{pwd}@{host}/pitchbook_data').connect()
 
 
-def load_query_from_file(file_path:str):
+def load_query_from_file(file_path:str)->str:
     """Loads a query from SQL file as a String for processing with Pandas
     
     Args:
@@ -29,4 +29,5 @@ def load_query_from_file(file_path:str):
     
     """
     with open(file_path, 'r') as f:
-        return f.read().replace('\t', '    ')
+        return f.read().replace('\t', '    ') # turn tabs into spaces for better compatibility
+

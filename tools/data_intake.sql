@@ -3,7 +3,8 @@ data_intake.sql
 Author: Zeezee
 Date: 05/10/2022
 
-A file that will create a database for 
+A file that will create a database, schema, and tables for the sample pitchbook data.
+All data was ingested originally using PosgreSQL.
 */
 
 
@@ -15,7 +16,7 @@ DROP TABLE if exists employee_hist;
 DROP TABLE if exists companies;
 
 -- create new database for data
-CREATE DATABASE pitchbook_data;
+CREATE DATABASE pitchbook_data ENCODING 'UTF8';
 
 -- connect to database
 -- NOTE: Only works on LOCAL clients
