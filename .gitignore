@@ -1,3 +1,6 @@
 jupyterhub.sqlite
 jupyterhub_cookie_secret
 .ipynb_checkpoints
+.dbeaver
+.project
+__pycache__
