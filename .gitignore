@@ -4,3 +4,4 @@ jupyterhub_cookie_secret
 .dbeaver
 .project
 __pycache__
+.DS_Store
